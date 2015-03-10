@@ -1,0 +1,7 @@
+Your task is to refactor the original CSVReader to better apply the open-closed principle:
+
+"You should be able to extend a classes behavior, without modifying it."
+
+Obviously, at this stage, refactoring a class requires you to change its implementation. The idea is that
+refac the class should be
+open
