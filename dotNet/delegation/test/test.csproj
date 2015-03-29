@@ -50,14 +50,24 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CsvReaderTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="resources\GeoIPCountryWhois-cut.csv" />
-    <None Include="resources\GeoIPCountryWhois.csv" />
+    <None Include="resources\GeoIPCountryWhois-cut.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="resources\GeoIPCountryWhois.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="resources\instructions.readme" />
     <None Include="resources\source.readme" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\delegation\delegation.csproj">
+      <Project>{c4120e59-43ab-4ce8-99be-eb918e89f1c2}</Project>
+      <Name>delegation</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
