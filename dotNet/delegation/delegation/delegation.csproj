@@ -40,6 +40,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CsvReader.cs" />
+    <Compile Include="delegation\Entry.cs" />
+    <Compile Include="delegation\ErrorStrategy.cs" />
+    <Compile Include="delegation\NamingStrategy.cs" />
+    <Compile Include="delegation\OutputConsumer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
