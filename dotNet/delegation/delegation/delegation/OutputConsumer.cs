@@ -1,11 +1,12 @@
-﻿namespace delegation.delegation
+﻿using System.IO;
+namespace delegation.delegation
 {
     public interface OutputConsumer
     {
-        void consumeStart(string file);
+        void consumeStart(FileInfo file);
 
         void consume(string line);
 
-        void consumeEnd(string file);
+        void consumeEnd(FileInfo file);
     }
 }

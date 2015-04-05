@@ -1,6 +1,6 @@
-﻿using System;
+﻿using delegation;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using delegation;
+using System;
 using System.IO;
 
 namespace test
@@ -35,7 +35,7 @@ namespace test
         public void testCsvReaderWorksAsExpected()
         {
             var csvReader = new CsvReader();
-            csvReader.parse(FILE_NAME);
+            csvReader.parse(new FileInfo(FILE_NAME));
             Assert.AreEqual(40448, outContent.ToString().Length);
             Assert.AreEqual(0, errContent.ToString().Length);
         }
@@ -45,7 +45,7 @@ namespace test
         public void testCsvReaderThrowsException()
         {
             CsvReader csvReader = new CsvReader();
-            csvReader.parse("foo");
+            csvReader.parse(new FileInfo("foo"));
         }
     }
 }

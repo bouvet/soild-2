@@ -36,7 +36,7 @@ public class CsvConsumer {
     public void assertState() {
         assertThat("There were not 1000 lines visited as expected", lines.size(), is(1000));
         assertThat("Sample line one is not matching", lines.get(0), is("Country [code= \"AU\" , name=\"Australia\"]"));
-        assertThat("Sample line one is not matching", lines.get(999), is("Country [code= \"ES\" , name=\"Spain\"]"));
+        assertThat("Sample line 1000 is not matching", lines.get(999), is("Country [code= \"ES\" , name=\"Spain\"]"));
         assertThat("visitStart was not called", startCalled, notNullValue(File.class));
         assertThat("visitEnd was not called", endCalled, notNullValue(File.class));
     }
