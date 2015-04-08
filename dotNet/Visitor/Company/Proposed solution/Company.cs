@@ -38,16 +38,5 @@ namespace Company
                 return visitor.Report;
             }
         }
-
-        public XDocument WorkerReportXml
-        {
-            get
-            {
-                var visitor = new XmlReportVisitor();
-                foreach (var worker in _workers)
-                    worker.accept(visitor);
-                return visitor.XmlDocument;
-            }
-        }
     }
 }

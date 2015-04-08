@@ -42,37 +42,6 @@ namespace Company
         public string Report { get { return RemoveTrailingNewLine(_reportBuilder.ToString()); } }
     }
 
-    public class XmlReportVisitor : IWorkerVisitor
-    {
-        private readonly XDocument _xmlDocument;
-        private readonly XElement _root;
-        
-        public XmlReportVisitor()
-        {
-            _xmlDocument = new XDocument();
-            _root = new XElement("Company");
-            _xmlDocument.Add(_root);
-        }
-
-        public void visit(Employee employee)
-        {
-            _root.Add(new XElement("Employee",
-                new XAttribute("Name", employee.Name),
-                new XAttribute("Position", employee.Position),
-                new XAttribute("MonthlySalary", employee.MonthySalary)));
-        }
-
-        public void visit(Consultant consultant)
-        {
-            _root.Add(new XElement("Consultant",
-                new XAttribute("Name", consultant.Name),
-                new XAttribute("Company", consultant.Company),
-                new XAttribute("MonthlyFee", consultant.MonthlyFee)));
-        }
-
-        public XDocument XmlDocument { get { return _xmlDocument; } }
-    }
-
 
     public class YearlyCostVisitor : IWorkerVisitor
     {
