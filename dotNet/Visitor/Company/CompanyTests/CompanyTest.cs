@@ -6,16 +6,14 @@ using System.Linq;
 namespace CompanyTests
 {
     /* 
-     * The abstract base-class Worker forces sub-classes to calculate YearlyCost and Report. Now there is a demand to also make a XmlReport for workers.
-     * The requirement for the XmlReport is defined in the failing test.
-     * We could follow the current pattern in the code-base, and add a XmlReport property to the Worker class and sub-classes.
-     * This however, violates the Open-Closed principle, as we need to change the Worker class and sub-classes when functionality like this is added.
+     * The abstract base-class Worker forces sub-classes to calculate YearlyCost and Report.
+     * This however, violates the Open-Closed principle, as we need to change the Worker class and sub-classes if new functionality like this should be added.
      * 
-     * So, instead we would like to rewrite the Worker-class to use the visitor-pattern so that it is open for changes like this in the future.
+     * So, we would like to rewrite the Worker-class to use the visitor-pattern so that it is open for new types of report in the future.
+     * http://www.oodesign.com/visitor-pattern.html
      * 
      * 1. Make the Worker-classes accept a visitor. 
-     * 2. Rewrite the existing yearly-cost and report functionality as visitors.
-     * 3. Write the new XmlReport as a visitor. All test should be green after this.
+     * 2. Rewrite the existing yearly-cost and report functionality as visitors without breaking the tests.
      * 
      * */
     [TestClass]
@@ -47,19 +45,6 @@ namespace CompanyTests
             Assert.AreEqual("Employee Erna Solberg works as CEO and earns 100000 per month.", result[0]);
             Assert.AreEqual("Consultant Bjarne Håkon Hanssen from First House costs 80000 per month.", result[1]);
             Assert.AreEqual("Employee Siv Jensen works as CFO and earns 70000 per month.", result[2]);
-        }
-
-        [TestMethod]
-        public void WorkerReportXml_should_return_information_on_all_workers_as_Xml()
-        {
-            var company = CreateTestCompany();
-            var result = company.WorkerReportXml;
-            var root = result.Element("Company");
-            Assert.IsNotNull(root);
-            Assert.AreEqual(3, root.Descendants().Count());
-            Assert.AreEqual("<Employee Name=\"Erna Solberg\" Position=\"CEO\" MonthlySalary=\"100000\" />", root.Descendants().ElementAt(0).ToString());
-            Assert.AreEqual("<Consultant Name=\"Bjarne Håkon Hanssen\" Company=\"First House\" MonthlyFee=\"80000\" />", root.Descendants().ElementAt(1).ToString());
-            Assert.AreEqual("<Employee Name=\"Siv Jensen\" Position=\"CFO\" MonthlySalary=\"70000\" />", root.Descendants().ElementAt(2).ToString());
         }
     }
 }

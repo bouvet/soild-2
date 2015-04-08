@@ -42,13 +42,5 @@ namespace Company
                 return builder.ToString();
             }
         }
-
-        public XDocument WorkerReportXml
-        {
-            get
-            {
-                return new XDocument();
-            }
-        }
     }
 }
