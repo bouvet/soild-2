@@ -1,7 +1,5 @@
 package no.bouvet.workshop.solid.visitor;
 
-import java.math.BigDecimal;
-
 public abstract class Worker {
 
     private final String name;

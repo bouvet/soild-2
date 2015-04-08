@@ -42,7 +42,7 @@ public class CsvReaderTest {
         CsvReader csvReader = new CsvReader();
         File file = new File(getClass().getResource("/" + FILE_NAME).getFile());
         csvReader.parse(file);
-        assertThat(outContent.toByteArray().length, is(40594));
+        assertThat(outContent.toByteArray().length, is(40604));
         assertThat(errContent.toByteArray().length, is(0));
     }
 

@@ -27,8 +27,4 @@ public class Company {
         stream.forEach(worker -> stringBuilder.append(System.lineSeparator()).append(worker.getReport()));
         return stringBuilder.toString();
     }
-
-    public Object getWorkerReportXml() {
-        return null; // XML document
-    }
 }

@@ -6,10 +6,10 @@ public class Consultant extends Worker {
 
     private final String company;
 
-    public Consultant(String name, int monthlyFee, String company) {
+    public Consultant(String name, String company, int monthlyFee) {
         super(name);
-        this.monthlyFee = monthlyFee;
         this.company = company;
+        this.monthlyFee = monthlyFee;
     }
 
     public int getMonthlyFee() {
@@ -22,7 +22,7 @@ public class Consultant extends Worker {
 
     @Override
     public String getReport() {
-        return String.format("Consultant %s from %s costs %s per month.", getName(), getCompany(), getMonthlyFee());
+        return String.format("Consultant %s from %s costs %d per month.", getName(), getCompany(), getMonthlyFee());
     }
 
     @Override

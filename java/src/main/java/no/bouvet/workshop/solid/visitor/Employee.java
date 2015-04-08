@@ -1,7 +1,5 @@
 package no.bouvet.workshop.solid.visitor;
 
-import java.math.BigDecimal;
-
 public class Employee extends Worker {
 
     private final String position;
@@ -16,7 +14,7 @@ public class Employee extends Worker {
 
     @Override
     public String getReport() {
-        return String.format("Employee %s works as %s and earns %s per month.",
+        return String.format("Employee %s works as %s and earns %d per month.",
                 getName(), getPosition(), getMonthlySalary());
     }
 
