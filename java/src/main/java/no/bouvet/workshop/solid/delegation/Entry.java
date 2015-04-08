@@ -3,10 +3,15 @@ package no.bouvet.workshop.solid.delegation;
 public class Entry {
 
     private final String fromIp;
+
     private final String toIp;
+
     private final String locationFrom;
+
     private final String locationTo;
+
     private final String countryCode;
+
     private final String country;
 
     public Entry(
@@ -47,5 +52,9 @@ public class Entry {
 
     public String getCountry() {
         return country;
+    }
+
+    public String[] toArray() {
+        return new String[]{fromIp, toIp, locationFrom, locationTo, countryCode, country};
     }
 }

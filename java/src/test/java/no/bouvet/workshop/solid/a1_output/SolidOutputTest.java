@@ -11,10 +11,10 @@ public class SolidOutputTest {
     /**
      * For this exercise, you are to refactor the CsvReader in order to allow for
      * consuming the output in an alternative manner. For this exercise, you should:
-     *
+     * <p>
      * 1. Refactor CsvReader without breaking the API of this class for other users.
      * 2. Create a subclass of the refactored CsvReader which directs the output
-     *    to the CsvConsumer below.
+     * to the CsvConsumer below.
      */
     @Test
     public void testSolidOutput() throws Exception {

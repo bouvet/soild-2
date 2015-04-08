@@ -2,12 +2,14 @@ package no.bouvet.workshop.solid.a2_decoration;
 
 import no.bouvet.workshop.solid.CsvReader;
 import no.bouvet.workshop.solid.CsvReaderTest;
+import no.bouvet.workshop.solid.solution.DecoratingCsvReader;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InOrder;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.mockito.verification.VerificationMode;
 
 import java.io.File;
 import java.io.PrintStream;
@@ -62,10 +64,9 @@ public class SolidDecorationTest {
         csvReader.parse(new File(getClass().getResource("/" + CsvReaderTest.FILE_NAME).getFile()));
 
         InOrder inOrder = inOrder(mockOut);
-        inOrder.verify(mockOut).println("1.0.0.0-1.0.0.255:AU");
-        inOrder.verify(mockOut).println("5.135.113.23-5.135.113.16:ES");
-        verify(mockOut, times(1000)).println(any(String.class));
-        verifyNoMoreInteractions(mockOut);
+        inOrder.verify(mockOut).println("\"1.0.0.0\"-\"1.0.0.255\":\"AU\"");
+        inOrder.verify(mockOut, times(999)).println(anyString());
+        inOrder.verifyNoMoreInteractions();
         verifyZeroInteractions(mockErr);
     }
 }

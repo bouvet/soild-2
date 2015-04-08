@@ -2,6 +2,7 @@ package no.bouvet.workshop.solid.a3_errorhandling;
 
 import no.bouvet.workshop.solid.CsvReader;
 import no.bouvet.workshop.solid.CsvReaderTest;
+import no.bouvet.workshop.solid.solution.ErrorHandlingCsvReader;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -58,6 +59,7 @@ public class SolidErrorHandlingTest {
 
         csvReader.parse(new File("foo"));
 
+        verify(mockOut).println("Starting to parse: foo");
         verify(mockOut).println("Could not read: foo");
         verifyNoMoreInteractions(mockOut);
         verifyZeroInteractions(mockErr);

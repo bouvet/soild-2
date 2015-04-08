@@ -15,7 +15,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
  * This however, violates the Open-Closed principle, as we need to change the Worker class and sub-classes when functionality like this is added.
  *
  * So, instead we would like to rewrite the Worker-class to use the visitor-pattern so that it is open for changes like this in the future.
- * 
+ *
  * 1. Make the Worker-classes accept a visitor.
  * 2. Rewrite the existing yearly-cost and report functionality as visitors.
  * 3. Write the new XmlReport as a visitor. All test should be green after this.
