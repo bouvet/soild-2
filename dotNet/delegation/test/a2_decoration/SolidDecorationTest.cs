@@ -54,9 +54,8 @@ namespace test.a2_delegation
 
             csvReader.parse(new FileInfo(CsvReaderTest.FILE_NAME));
 
-            mockOut.Verify(x => x.WriteLine("1.0.0.0-1.0.0.255:AU"));
-            mockOut.Verify(x => x.WriteLine("5.135.113.23-5.135.113.16:ES"));
-            mockOut.Verify(x => x.WriteLine(It.IsAny<string>(), Times.Exactly(1000)));
+            mockOut.Verify(x => x.WriteLine("\"1.0.0.0\"-\"1.0.0.255\":\"AU\""));
+            mockOut.Verify(x => x.WriteLine(It.IsAny<string>()), Times.Exactly(1000));
         }
     }
 }

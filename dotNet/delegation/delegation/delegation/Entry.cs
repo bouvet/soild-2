@@ -55,6 +55,11 @@
         {
             return country;
         }
+
+        public string[] toArray()
+        {
+            return new string[] { fromIp, toIp, locationFrom, locationTo, countryCode, country };
+        }
     }
 
 }

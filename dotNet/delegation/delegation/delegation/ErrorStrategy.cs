@@ -1,9 +1,10 @@
 ﻿using System;
+using System.IO;
 
 namespace delegation.delegation
 {
     public interface ErrorStrategy
     {
-        void handle(Exception e);
+        void handle(FileInfo file, Exception e);
     }
 }

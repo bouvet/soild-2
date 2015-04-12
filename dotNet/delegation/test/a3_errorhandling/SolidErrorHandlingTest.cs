@@ -15,8 +15,7 @@ namespace test.a3_errorhandling
         [TestInitialize]
         public void setUp()
         {
-            mockOut = new Mock<TextWriter>(MockBehavior.Strict);
-            mockOut.Setup(x => x.FormatProvider).Returns<IFormatProvider>(null);
+            mockOut = new Mock<TextWriter>();
             mockErr = new Mock<TextWriter>(MockBehavior.Strict);
             mockErr.Setup(x => x.FormatProvider).Returns<IFormatProvider>(null);
             originalOut = Console.Out;
@@ -53,6 +52,7 @@ namespace test.a3_errorhandling
 
             csvReader.parse(new FileInfo("foo"));
 
+            mockOut.Verify(x => x.WriteLine("Starting to parse: foo"));
             mockOut.Verify(x => x.WriteLine("Could not read: foo"));
         }
     }
