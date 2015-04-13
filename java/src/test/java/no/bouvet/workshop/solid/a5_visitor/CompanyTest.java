@@ -31,14 +31,14 @@ public class CompanyTest {
     }
 
     @Test
-    public void YearlyWorkerCost_should_return_total_cost_for_all_employees_and_consultants() {
+    public void yearlyWorkerCostShouldReturnTotalCostForAllEmployeesAndConsultants() {
         Company company = createTestCompany();
         int result = company.getYearlyWorkerCost();
         assertThat(result, is(3000000));
     }
 
     @Test
-    public void WorkerReport_should_return_information_on_all_workers_separated_by_lineBreak() {
+    public void workerReportShouldReturnInformationOnAllWorkersSeparatedByLineBreak() {
         Company company = createTestCompany();
         String[] result = company.getWorkerReport().split(System.lineSeparator());
         assertThat(result.length, is(3));

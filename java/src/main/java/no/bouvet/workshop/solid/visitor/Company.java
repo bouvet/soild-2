@@ -22,9 +22,8 @@ public class Company {
 
     public String getWorkerReport() {
         StringBuilder stringBuilder = new StringBuilder();
-        Stream<Worker> stream = workers.stream();
-        stream.findFirst().ifPresent(worker -> stringBuilder.append(worker.getReport()));
-        stream.forEach(worker -> stringBuilder.append(System.lineSeparator()).append(worker.getReport()));
+        workers.stream().findFirst().ifPresent(worker -> stringBuilder.append(worker.getReport()));
+        workers.stream().skip(1).forEach(worker -> stringBuilder.append(System.lineSeparator()).append(worker.getReport()));
         return stringBuilder.toString();
     }
 }
