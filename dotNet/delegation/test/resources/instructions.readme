@@ -3,5 +3,10 @@ Your task is to refactor the original CSVReader to better apply the open-closed 
 "You should be able to extend a classes behavior, without modifying it."
 
 Obviously, at this stage, refactoring a class requires you to change its implementation. The idea is that
-refac the class should be
-open
+refactoring the class should not break existing use cases. For this reason, a CsvReaderTest is added
+which should not be altered and must not fail after refactoring is applied.
+
+Furthermore, with every additional task, the tests of the previous tasks must remain in tact.
+
+As a last assignment (number 5), it is required to implement a visitor pattern. This last task is not
+connected to the previous tasks.
